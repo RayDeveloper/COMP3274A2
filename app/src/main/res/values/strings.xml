@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">COMP3275A2</string>
     <string name="action_settings">Settings</string>
+    <string-array name="headings">
+        <item>Acceloremeter</item>
+        <item>Gyroscope</item>
+        <item>Proximity Sensor</item>
+        <item>Retrieve GPS Location</item>
+        <item>Bluetooth Status and Device Scanning</item>
+        <item>Broadcast Receiver</item>
+        <item>All Stored Locations</item>
+    </string-array>
+    <string name="title_activity_accelerometerctivity">Accelerometerctivity</string>
+    <string name="title_activity_accelerometer">AccelerometerActivity</string>
+    <string name="title_activity_bluetooth">BluetoothActivity</string>
 </resources>
