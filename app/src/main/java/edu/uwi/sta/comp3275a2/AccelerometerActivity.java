@@ -20,7 +20,7 @@ public class AccelerometerActivity extends AppCompatActivity implements SensorEv
     private Sensor mAccelerometer;
     TextView title, tv, tv1, tv2;
     RelativeLayout layout;
-
+//anna test comment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
