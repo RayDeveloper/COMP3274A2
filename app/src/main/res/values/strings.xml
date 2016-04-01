@@ -10,7 +10,15 @@
         <item>Broadcast Receiver</item>
         <item>All Stored Locations</item>
     </string-array>
-    <string name="title_activity_accelerometerctivity">Accelerometerctivity</string>
-    <string name="title_activity_accelerometer">AccelerometerActivity</string>
-    <string name="title_activity_bluetooth">BluetoothActivity</string>
+    <string name="title_activity_accelerometerctivity">Accelerometer</string>
+    <string name="title_activity_accelerometer">Accelerometer</string>
+    <string name="title_activity_bluetooth">Bluetooth</string>
+    <string name="title_activity_gyroscope">Gryoscope</string>
+    <string name="x">X-axis: %f</string>
+    <string name="y">Y-axis: %f</string>
+    <string name="z">Z-axis: %f</string>
+    <string name="title_activity_proximity_sensor">ProximitySensor</string>
+    <string name="title_activity_location">Location</string>
+    <string name="title_activity_broad_cast_receiver">BroadCastReceiver</string>
+
 </resources>

@@ -30,6 +30,7 @@ public class BluetoothActivity extends AppCompatActivity {
     ArrayAdapter<String> btArrayAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth);
         btnScanDevice = (Button)findViewById(R.id.scandevice);
@@ -58,19 +59,26 @@ public class BluetoothActivity extends AppCompatActivity {
         unregisterReceiver(ActionFoundReceiver);
     }
 
-    private void CheckBlueToothState(){
+    public void CheckBlueToothState(){
         if (bluetoothAdapter == null){
-            stateBluetooth.setText("Bluetooth NOT support");
+            String str= "Bluetooth NOT support";
+            stateBluetooth.setText(str);
         }else{
             if (bluetoothAdapter.isEnabled()){
                 if(bluetoothAdapter.isDiscovering()){
-                    stateBluetooth.setText("Bluetooth is currently in device discovery process.");
+                    String str1= "Bluetooth is currently in device discovery process.";
+
+                    stateBluetooth.setText(str1);
                 }else{
-                    stateBluetooth.setText("Bluetooth is Enabled.");
+                    String str2= "Bluetooth is Enabled.";
+
+                    stateBluetooth.setText(str2);
                     btnScanDevice.setEnabled(true);
                 }
             }else{
-                stateBluetooth.setText("Bluetooth is NOT Enabled!");
+                String str3= "Bluetooth is NOT Enabled!";
+
+                stateBluetooth.setText(str3);
                 Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
             }

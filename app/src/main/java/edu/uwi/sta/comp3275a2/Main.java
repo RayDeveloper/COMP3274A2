@@ -37,9 +37,26 @@ public class Main extends AppCompatActivity {
                     Intent intent = new Intent(Main.this, AccelerometerActivity.class);
                     startActivity(intent);
                 }
+                if (position == 1) {
+                    Intent intent = new Intent(Main.this, Gyroscope.class);
+                    startActivity(intent);
+                }
+                if (position == 2) {
+                    Intent intent = new Intent(Main.this, ProximitySensor.class);
+                    startActivity(intent);
+                }
+                if (position == 3) {
+                    Intent intent = new Intent(Main.this, Location.class);
+                    startActivity(intent);
+                }
+
 
                 if(position ==4){
                     Intent intent = new Intent(Main.this,BluetoothActivity.class);
+                    startActivity(intent);
+                }
+                if(position ==5){
+                    Intent intent = new Intent(Main.this,BroadCastReceiver.class);
                     startActivity(intent);
                 }
 
