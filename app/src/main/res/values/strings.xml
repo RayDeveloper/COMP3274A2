@@ -18,7 +18,14 @@
     <string name="y">Y-axis: %f</string>
     <string name="z">Z-axis: %f</string>
     <string name="title_activity_proximity_sensor">ProximitySensor</string>
-    <string name="title_activity_location">Location</string>
+    <string name="title_activity_location">Broadcast Intent</string>
     <string name="title_activity_broad_cast_receiver">BroadCastReceiver</string>
+    <string name="title_activity_stored_locations">StoredLocations</string>
+    <string name="stored_locations"><u>Stored Locations</u></string>
+    <string name="name_lat"><u>Latitude</u></string>
+    <string name="name_long"><u>Longitude</u></string>
+
+
+
 
 </resources>

@@ -49,8 +49,6 @@ public class Main extends AppCompatActivity {
                     Intent intent = new Intent(Main.this, Location.class);
                     startActivity(intent);
                 }
-
-
                 if(position ==4){
                     Intent intent = new Intent(Main.this,BluetoothActivity.class);
                     startActivity(intent);
@@ -59,7 +57,10 @@ public class Main extends AppCompatActivity {
                     Intent intent = new Intent(Main.this,BroadCastReceiver.class);
                     startActivity(intent);
                 }
-
+                if(position ==6){
+                    Intent intent = new Intent(Main.this,StoredLocations.class);
+                    startActivity(intent);
+                }
 
             }
         };

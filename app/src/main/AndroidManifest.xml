@@ -82,13 +82,10 @@
                 android:value="edu.uwi.sta.comp3275a2.Main" />
         </activity>
 
-        <receiver android:name="MyReceiver">
-
+        <receiver android:name=".MyReceiver">
             <intent-filter>
-                <action android:name="GPS">
-                </action>
+                <action android:name="GPS"></action>
             </intent-filter>
-
         </receiver>
 
         <activity
@@ -100,9 +97,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.uwi.sta.comp3275a2.Main" />
         </activity>
-
-
-
+        <activity
+            android:name=".StoredLocations"
+            android:label="@string/title_activity_stored_locations"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.uwi.sta.comp3275a2.Main" />
+        </activity>
     </application>
 
 </manifest>

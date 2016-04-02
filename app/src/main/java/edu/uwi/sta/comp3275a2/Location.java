@@ -2,10 +2,12 @@ package edu.uwi.sta.comp3275a2;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -32,8 +34,11 @@ public class Location extends AppCompatActivity {
 
     Button btnShowLocation;
 
+
     // GPSTracker class
     GPSTracker gps;
+    double latitude;
+    double longitude;
 
     @SuppressWarnings("MissingPermission")
     @Override
@@ -42,7 +47,6 @@ public class Location extends AppCompatActivity {
         setContentView(R.layout.activity_location);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +56,11 @@ public class Location extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        gps = new GPSTracker(Location.this);
 
+
+        MyReceiver rec= new MyReceiver(getApplicationContext(),getIntent(),gps.getLatitude(),gps.getLongitude());
+        getApplicationContext().registerReceiver(rec, new IntentFilter("GPS"));
         btnShowLocation = (Button) findViewById(R.id.btnShowLocation);
 
         // show location button click event
@@ -67,8 +75,8 @@ public class Location extends AppCompatActivity {
                 // check if GPS enabled
                 if (gps.canGetLocation()) {
 
-                    double latitude = gps.getLatitude();
-                    double longitude = gps.getLongitude();
+                     latitude = gps.getLatitude();
+                     longitude = gps.getLongitude();
 
                     // \n is for new line
                     Toast.makeText(Location.this, "Your Location is: \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
@@ -81,14 +89,7 @@ public class Location extends AppCompatActivity {
 
             }
         });
-//        Button broadcast= (Button) findViewById(R.id.broadcast);
-//        broadcast.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View arg0) {
-//                //broadcastIntent(arg0);
-//            }
-//
-//        });
+
     }
     public void checkRequestPermission(){
 

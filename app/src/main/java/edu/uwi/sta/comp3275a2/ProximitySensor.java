@@ -79,16 +79,19 @@ public class ProximitySensor extends AppCompatActivity implements SensorEventLis
     @Override
     protected void onPause(){
 
-        sm.registerListener(this, proxSensor, SensorManager.SENSOR_DELAY_NORMAL);
+        sm.unregisterListener(this);
+
         super.onPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        sm.registerListener(this, proxSensor, SensorManager.SENSOR_DELAY_NORMAL);
+
         // register this class as a listener for the orientation and
         // accelerometer sensors
-        sm.unregisterListener(this);
+        //sm.unregisterListener(this);
     }
 
 //    @Override

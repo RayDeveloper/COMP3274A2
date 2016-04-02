@@ -1,21 +1,29 @@
 package edu.uwi.sta.comp3275a2;
 
-import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ListView;
 
-public class BroadCastReceiver extends AppCompatActivity {
-    View view;
+import java.util.List;
+
+import edu.uwi.sta.comp3275a2.Models.DBHelper;
+import edu.uwi.sta.comp3275a2.Models.LocationAdapter;
+import edu.uwi.sta.comp3275a2.Models.locations;
+
+public class StoredLocations extends AppCompatActivity {
+    List<locations> locationList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_broad_cast_receiver);
+        setContentView(R.layout.activity_stored_locations);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -28,24 +36,14 @@ public class BroadCastReceiver extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // TodoDatabaseHandler is a SQLiteOpenHelper class connecting to SQLite
+        final ListView listView = (ListView) findViewById(R.id.location_lv);
+        DBHelper help = new DBHelper(StoredLocations.this);
+        locationList = help.getLocations();
+        LocationAdapter adapter = new LocationAdapter(StoredLocations.this, locationList);
+        listView.setAdapter(adapter);
 
-
-
-        Button broadcast= (Button) findViewById(R.id.broadcast);
-        broadcast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                broadcastIntent(arg0);
-            }
-
-        });
+        //looc.changeCursor(cursor);
     }
-
-    public void broadcastIntent(View view)    {
-        Intent intent = new Intent();
-        intent.setAction("GPS");
-        sendBroadcast(intent);
-    }
-
 
 }
